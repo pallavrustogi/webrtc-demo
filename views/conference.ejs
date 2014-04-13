@@ -16,7 +16,6 @@
       room: '<%= room %>',
       token: '<%= token %>',
       host: '<%= host %>',
-      webrtcContainer: $('#webrtc-container')[0],
       webrtcList: $('#webrtc-list')[0],
       chatContainer: $('#chat-container')[0]
     };
@@ -69,12 +68,12 @@
 
 <div class="main">
  <form id="form-id">
- <input name="radio-input" type="radio" value="1"/>
-  <input name="radio-input" type="radio" value="2"/>
+ <input name="radio-input" id="play-button" type="radio" value="1"/>
+  <input name="radio-input" id="pause-button" type="radio" value="2"/>
   </form>
   <nav id="mobile-menu">
     <ul>
-      <li class="current mobile-tab-video"><a href="#" rel="#webrtc-container">Video</a></li>
+      <li class="current mobile-tab-video"><a href="#" rel="#video-weed">Video</a></li>
       <li class="mobile-tab-chat"><a href="#" rel="#mobile-chat">Chat</a></li>
       <li class="mobile-tab-settings"><a href="#" rel="#mobile-settings">Settings</a></li>
     </ul>
@@ -83,7 +82,8 @@
     <p>The room owner has left the conference.</p>
   </div>
   <section class="cf">
-    <div id="webrtc-container" class="webrtc-container tab-contents current">
+    <div id="video-weed" class="video-weed tab-contents current">
+    <iframe src="//www.youtube.com/embed/FKWwdQu6_ok?enablejsapi=1" frameborder="0" id="video"></iframe>
     </div>
     <aside id="mobile-chat" class="tab-contents">
       <div class="join-url desktop">
@@ -155,6 +155,40 @@ goinstant.connect(url, function(err, platformObj, roomObj) {
     // Your form should now be initialized!
   });
 });
+</script>
+<script type="text/avascript">
+var tag = document.createElement('script');
+tag.src = "//www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubePlayerAPIReady() {
+  // create the global player from the specific iframe (#video)
+  player = new YT.Player('video', {
+    events: {
+      // call this function when player is ready to use
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  
+  // bind events
+  var playButton = document.getElementById("play-button");
+  playButton.addEventListener("click", function() {
+    player.playVideo();
+  });
+  
+  var pauseButton = document.getElementById("pause-button");
+  pauseButton.addEventListener("click", function() {
+    player.pauseVideo();
+  });
+  
+}
+
 </script>
 
 
