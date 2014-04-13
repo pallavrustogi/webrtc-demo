@@ -83,7 +83,7 @@
   </div>
   <section class="cf">
     <div id="video-weed" class="video-weed tab-contents current">
-    <iframe src="//www.youtube.com/embed/FKWwdQu6_ok?enablejsapi=1" frameborder="0" id="video"></iframe>
+    <iframe src="//www.youtube.com/embed/FKWwdQu6_ok?enablejsapi=1&controls=0" frameborder="0"  id="video"></iframe>
     </div>
     <aside id="mobile-chat" class="tab-contents">
       <div class="join-url desktop">
@@ -178,12 +178,12 @@ function onPlayerReady(event) {
   
   // bind events
   var playButton = document.getElementById("play-button");
-  playButton.addEventListener("click", function() {
+  playButton.addEventListener("change", function() {
     player.playVideo();
   });
   
   var pauseButton = document.getElementById("pause-button");
-  pauseButton.addEventListener("click", function() {
+  pauseButton.addEventListener("change", function() {
     player.pauseVideo();
   });
   
