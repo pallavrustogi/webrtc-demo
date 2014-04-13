@@ -173,12 +173,13 @@ function onYouTubePlayerAPIReady() {
 function onPlayerReady(event) {
   event.preventDefault();
   // bind events
-  $("input[name='radio-input']").change(function(){
+  $("input[name='radio-input']").change(function(event){
+  event.preventDefault();
   if($(this).val() === '1')
       player.playVideo();
   else
       player.pauseVideo();
-  });  
+  }); 
 }
 
 </script>
