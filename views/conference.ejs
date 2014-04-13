@@ -158,9 +158,9 @@ goinstant.connect(url, function(err, platformObj, roomObj) {
 </script>
 <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
 <script type="text/javascript">
-var player;
+//var player;
 
-function onYouTubePlayerAPIReady() {
+/*function onYouTubePlayerAPIReady() {
   // create the global player from the specific iframe (#video)
   player = new YT.Player('video-weed', {
     events: {
@@ -168,19 +168,19 @@ function onYouTubePlayerAPIReady() {
       'onReady': onPlayerReady
     }
   });
-}
+}*/
 
-function onPlayerReady(event) { 
+//function onPlayerReady(event) { 
   // bind events
   $("input[name='radio-input']").change(function(event1){
   event1.preventDefault();
   if($(this).val() === '1')
-      player.playVideo();
+      $('#video').get(0).playVideo();
   else
-      player.pauseVideo();
+      $('#video').get(0).pauseVideo();
   });
   
-}
+//}
 
 </script>
 
