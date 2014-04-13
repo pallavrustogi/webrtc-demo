@@ -179,20 +179,10 @@ function onPlayerReady(event) {
   // bind events
   $("input[name='radio-input']").change(function(){
   if($(this).val() === '1')
-      player.playVideo()
+      player.playVideo();
   else
       player.pauseVideo();
-  ;});
- // var playButton = document.getElementById("play-button");
-  /*playButton.addEventListener("change", function() {
-    player.playVideo();
-  });*/
-  
-  /*var pauseButton = document.getElementById("pause-button");
-  pauseButton.addEventListener("change", function() {
-    player.pauseVideo();
-  });*/
-  
+  });  
 }
 
 </script>
