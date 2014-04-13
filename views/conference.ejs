@@ -65,7 +65,7 @@
     });
   });
 </script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <div class="main">
  <form id="form-id">
  <input name="radio-input" id="play-button" type="radio" value="1"/>
@@ -177,15 +177,21 @@ function onYouTubePlayerAPIReady() {
 function onPlayerReady(event) {
   
   // bind events
-  var playButton = document.getElementById("play-button");
-  playButton.addEventListener("change", function() {
+  $("input[name='radio-input']").change(function(){
+  if($(this).val() === '1')
+      player.playVideo()
+  else
+      player.pauseVideo();
+  ;});
+ // var playButton = document.getElementById("play-button");
+  /*playButton.addEventListener("change", function() {
     player.playVideo();
-  });
+  });*/
   
-  var pauseButton = document.getElementById("pause-button");
+  /*var pauseButton = document.getElementById("pause-button");
   pauseButton.addEventListener("change", function() {
     player.pauseVideo();
-  });
+  });*/
   
 }
 
