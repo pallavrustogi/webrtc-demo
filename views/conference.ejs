@@ -68,6 +68,10 @@
 </script>
 
 <div class="main">
+ <form id="form-id">
+ <input name="radio-input" type="radio" value="1"/>
+  <input name="radio-input" type="radio" value="2"/>
+  </form>
   <nav id="mobile-menu">
     <ul>
       <li class="current mobile-tab-video"><a href="#" rel="#webrtc-container">Video</a></li>
@@ -121,6 +125,44 @@
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
         })();
       </script>
+      <script type="text/javascript" src="https://cdn.goinstant.net/v1/platform.min.js"></script>
+<script type="text/javascript">
+var collaborationBundle = new goinstant.widgets.CollaborationBundle({
+  connectUrl: 'https://goinstant.net/28c3f4fe2777/wewatch'
+});
+collaborationBundle.initialize();
+</script>
+<script type="text/javascript">
+// Connect URL
+var url = 'https://goinstant.net/28c3f4fe2777/wewatch';
+
+// Connect to GoInstant
+goinstant.connect(url, function(err, platformObj, roomObj) {
+  if (err) {
+    throw err;
+  }
+
+  // Create a key to store the form data
+  var formKey = roomObj.key('wewatch-test-key');
+
+  // Create a new instance of the widget
+  var form = new goinstant.widgets.Form({
+    el: document.getElementById('form-id'),
+    key: formKey,
+    room: roomObj
+  });
+
+  form.initialize(function(err) {
+    if (err) {
+      throw err;
+    }
+    // Your form should now be initialized!
+  });
+});
+</script>
+<script type="text/javascript" src="https://cdn.goinstant.net/widgets/collaboration-bundle/latest/collaboration-bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.goinstant.net/widgets/collaboration-bundle/latest/collaboration-bundle.css" />
+
     </li>
   </ul>
 </div>
