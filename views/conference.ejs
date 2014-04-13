@@ -170,11 +170,10 @@ function onYouTubePlayerAPIReady() {
   });
 }
 
-function onPlayerReady(event) {
-  event.preventDefault(); 
+function onPlayerReady(event) { 
   // bind events
-  $("input[name='radio-input']").change(function(event){
-  event.preventDefault();
+  $("input[name='radio-input']").change(function(event1){
+  event1.preventDefault();
   if($(this).val() === '1')
       player.playVideo();
   else
